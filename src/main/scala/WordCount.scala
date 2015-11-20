@@ -25,33 +25,40 @@ import org.apache.spark.{SparkConf, SparkContext}
 object WordCount
 {
 	def main(args: Array[String]) {
-		val conf = new SparkConf()
-		var lineage = true
-		var logFile = "hdfs://scai01.cs.ucla.edu:9000/clash/data/size-500"
-		logFile = "/home/ali/work/svn/bigdatadebug/spark-1.1.1/README.md"
-		//logFile = "/home/ali/test.txt"
-		lineage = true
+		if(args(0).contains("a")){
+			for(i <- 1 to 10){
+				println("a")
+			}
+		}else {
+				println("b")
+			}
 
-		println("Program started")
-		conf.setAppName("WordCount-" + lineage + "-" + logFile).setMaster("local[1]")
 
-		val sc = new SparkContext(conf)
-		//		val lc = new LineageContext(sc)
-		//		lc.setCaptureLineage(true)
-		//
 
-		val file = sc.textFile(logFile, 1)
-		val fm = file.flatMap{line => line.trim().split(" ")}
-		val pair = fm.map{word =>
-			if(word.contains("cccwww"))
-			(word.replace("," , ""), 1)
-			else
-			(word, 1)
-		}
-		val count = pair.reduceByKey(_ + _)
-		val d = count.collect()
-		println(d)
+//		val conf = new SparkConf()
+//		var lineage = true
+//		var logFile = "hdfs://scai01.cs.ucla.edu:9000/clash/data/size-500"
+//		logFile = "/Users/malig/workspace/git/spark-lineage/README.md"
+//		//logFile = "/home/ali/test.txt"
+//		lineage = true
+//
+//		println("Program started")
+//		conf.setAppName("WordCount-" + lineage + "-" + logFile).setMaster("local[1]")
+//
+//		val sc = new SparkContext(conf)
+//		//		val lc = new LineageContext(sc)
+//		//		lc.setCaptureLineage(true)
+//		//
+//
+//		val file = sc.textFile(logFile, 1)
+//		val fm = file.flatMap{line => line.trim().split(" ")}.filter(word  => !word.contains(","))
+//
+//		val pair = fm.map{word =>
+//			if(word.contains(","))	(word.replace("," , ""), 1) else (word, 1)
+//		}
+//		val count = pair.reduceByKey(_ + _)
+//		val d = count.collect()
+//		println(d)
+//		sc.stop()
 	}
-def cake(){}
-
 }

@@ -1,3 +1,3 @@
 logLevel := Level.Warn
 
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.3.3")
+addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "0.15-SNAPSHOT")

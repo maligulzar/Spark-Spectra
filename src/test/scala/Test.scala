@@ -8,7 +8,11 @@ import org.scalatest._
 class Test extends FlatSpec {
 
 	"Test" should " Pass " in {
-		WordCount.main(new Array[String](0))
+		WordCount.main(Array("a"))
+  //            WordCountFail.main(new Array[String](0))
+//		Histo.main(Array("/Users/malig/workspace/git/Spark-Spectra/success.txt"))
+//		HistoFail.main(Array("/Users/malig/workspace/git/Spark-Spectra/fail.txt"))
+//		TC.main(new Array[String](0))
 		assert(true)
 	}
 }
