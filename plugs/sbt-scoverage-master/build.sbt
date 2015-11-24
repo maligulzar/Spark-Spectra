@@ -2,7 +2,7 @@ name := "sbt-scoverage"
 
 organization := "org.scoverage"
 
-version := "0.15-SNAPSHOT"
+version := "0.16-SNAPSHOT"
 
 sbtPlugin := true
 
@@ -17,7 +17,7 @@ resolvers ++= {
   else Seq.empty
 }
 
-libraryDependencies += "org.scoverage" %% "scalac-scoverage-plugin" % "0.13-SNAPSHOT"
+libraryDependencies += "org.scoverage" %% "scalac-scoverage-plugin" % "0.14-SNAPSHOT"
 
 publishMavenStyle := true
 

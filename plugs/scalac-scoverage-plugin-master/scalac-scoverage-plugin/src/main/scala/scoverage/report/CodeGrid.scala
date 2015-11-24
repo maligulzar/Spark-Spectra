@@ -78,8 +78,8 @@ class CodeGrid(mFile: MeasuredFile) {
     val RED = "#F0ADAD"
     val COUNT = getColor(count)
     status match {
-      case Invoked => s"background: $COUNT"
-      case NotInvoked => s"background: $COUNT"
+      case Invoked => s"background: $GREEN"
+      case NotInvoked => s"background: $RED"
       case NoData => ""
     }
   }

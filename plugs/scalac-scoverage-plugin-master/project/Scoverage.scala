@@ -17,7 +17,7 @@ object Scoverage extends Build {
     organization := Org,
     scalaVersion := Scala,
     crossScalaVersions := Seq("2.10.4", "2.11.7"),
-    version := "0.13-SNAPSHOT",
+    version := "0.14-SNAPSHOT",
     fork in Test := false,
     publishMavenStyle := true,
     publishArtifact in Test := false,

@@ -10,8 +10,9 @@ object ScoverageSbtPlugin extends AutoPlugin {
   val OrgScoverage = "org.scoverage"
   val ScalacRuntimeArtifact = "scalac-scoverage-runtime"
   val ScalacPluginArtifact = "scalac-scoverage-plugin"
-  val ScoverageVersion = "0.13-SNAPSHOT"
+  val ScoverageVersion = "0.14-SNAPSHOT"
   val autoImport = ScoverageKeys
+
 
   import autoImport._
 

@@ -25,10 +25,15 @@ import org.apache.spark.{SparkConf, SparkContext}
 object WordCount
 {
 	def main(args: Array[String]) {
-		if(args(0).contains("a")){
+		
+		if("aaaaaaaa".contains("a")){
 			for(i <- 1 to 10){
 				println("a")
 			}
+			for(i <- 1 to 5){
+                                println("b")
+                        }
+
 		}else {
 				println("b")
 			}

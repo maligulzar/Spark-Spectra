@@ -10,4 +10,6 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % "1.5.1" % "provided"
 
+libraryDependencies += "org.scoverage" %% "scalac-scoverage-runtime" % "0.14-SNAPSHOT"
+
 coverageExcludedFiles := "org.apache.*;"
