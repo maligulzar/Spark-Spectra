@@ -25,7 +25,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object WordCount
 {
 	def main(args: Array[String]) {
-		
+/*
 		if("aaaaaaaa".contains("a")){
 			for(i <- 1 to 10){
 				println("a")
@@ -38,32 +38,40 @@ object WordCount
 				println("b")
 			}
 
+*/
+		val conf = new SparkConf()
+		var lineage = true
+		var logFile = "hdfs://scai01.cs.ucla.edu:9000/clash/data/size-500"
+		logFile = "/Users/malig/workspace/git/spark-lineage/README.md"
+		logFile = "/home/ali/work/Idea/README.md"
+		lineage = true
 
+		println("Program started")
+		conf.setAppName("WordCount-" + lineage + "-" + logFile).setMaster("spark://localhost.localdomain:7077")
 
-//		val conf = new SparkConf()
-//		var lineage = true
-//		var logFile = "hdfs://scai01.cs.ucla.edu:9000/clash/data/size-500"
-//		logFile = "/Users/malig/workspace/git/spark-lineage/README.md"
-//		//logFile = "/home/ali/test.txt"
-//		lineage = true
-//
-//		println("Program started")
-//		conf.setAppName("WordCount-" + lineage + "-" + logFile).setMaster("local[1]")
-//
-//		val sc = new SparkContext(conf)
-//		//		val lc = new LineageContext(sc)
-//		//		lc.setCaptureLineage(true)
-//		//
-//
-//		val file = sc.textFile(logFile, 1)
-//		val fm = file.flatMap{line => line.trim().split(" ")}.filter(word  => !word.contains(","))
-//
-//		val pair = fm.map{word =>
-//			if(word.contains(","))	(word.replace("," , ""), 1) else (word, 1)
-//		}
-//		val count = pair.reduceByKey(_ + _)
-//		val d = count.collect()
-//		println(d)
-//		sc.stop()
+		val sc = new SparkContext(conf)
+		//		val lc = new LineageContext(sc)
+		//		lc.setCaptureLineage(true)
+		//
+
+	val file = sc.textFile(logFile, 1)
+		val fm = file.flatMap{line => line.trim().split(" ")}.filter(word  => !word.contains(","))
+
+		val pair = fm.map{word =>
+			if(word.contains(","))	(word.replace("," , ""), 1) else (word, 1)
+		}
+		val count = pair.reduceByKey(_ + _)
+		val alpha = count.map{word =>
+			val g =new Array[(Char, Int)](word._1.size)
+			var i=0;
+			for(a <- word._1){
+				g(i) = (a, word._2)
+				i = i+1
+			}
+			g
+		 }
+	val d = alpha.collect()
+		println(d)
+		sc.stop()
 	}
 }
